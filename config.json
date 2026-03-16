@@ -1,0 +1,42 @@
+{
+  "siteTitle": "Last Call RP",
+  "tagline": "Last call — because we're done lowering the bar.",
+  "discordUrl": "https://discord.gg/guftqbcA9a",
+  "sections": [
+    {
+      "id": "general",
+      "title": "General Rules",
+      "tag": "Section I",
+      "file": "rules/general.html",
+      "docId": "1BhcxT61HmVUGLWyZMqkJrrDMoK29PkYe"
+    },
+    {
+      "id": "rp-standards",
+      "title": "RP Standards",
+      "tag": "Section II",
+      "file": "rules/rp-standards.html",
+      "docId": "1Cob7wxZjb2oi7EjNXpG8U1s7gTusFx08"
+    },
+    {
+      "id": "vehicle",
+      "title": "Vehicle Rules",
+      "tag": "Section III",
+      "file": "rules/vehicle.html",
+      "docId": "1GB6WbNfc1g0tic9g_iwFW1uRS0XSMmVo"
+    },
+    {
+      "id": "criminal",
+      "title": "Criminal RP",
+      "tag": "Section IV",
+      "file": "rules/criminal.html",
+      "docId": "1Oz0aMotf1eHOPRijBlcS74ZnasY-YPug"
+    },
+    {
+      "id": "staff",
+      "title": "Staff Policies",
+      "tag": "Section V",
+      "file": "rules/staff.html",
+      "docId": "1_rlCmCvU54sB4vWijLPbwR7P449CLMZf"
+    }
+  ]
+}
