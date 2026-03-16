@@ -59,13 +59,15 @@
     }
 
     .nav-logo {
-      font-family: var(--font-ui);
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold-light);
+      display: flex;
+      align-items: center;
       text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: 38px;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -147,6 +149,13 @@
       color: var(--gold);
     }
 
+    .hero-logo-img {
+      width: clamp(180px, 28vw, 300px);
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+
     .hero-title {
       font-family: var(--font-display);
       font-size: clamp(72px, 11vw, 130px);
@@ -226,6 +235,7 @@
     /* ── RULES SECTION ───────────────────────────────────────── */
     .rules-outer {
       border-top: 1px solid var(--border-dim);
+      scroll-margin-top: var(--nav-h);
     }
 
     .rules-wrapper {
@@ -501,7 +511,9 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Last Call RP</a>
+  <a href="/" class="nav-logo">
+    <img src="images/lastcallrp-logo.png" alt="Last Call RP">
+  </a>
   <ul class="nav-links">
     <li><a href="#rules">Rules</a></li>
     <li><a href="#" class="btn-discord-nav" id="discord-nav">Join Discord</a></li>
@@ -510,10 +522,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-rule">
-    <span class="hero-eyebrow">FiveM · Los Santos · Serious Roleplay</span>
-  </div>
-  <h1 class="hero-title">Last Call</h1>
+  <img src="images/lastcallrp-logo.png" alt="Last Call RP" class="hero-logo-img">
   <p class="hero-sub">— Rules &amp; Guidelines —</p>
   <div class="hero-divider"><div class="hero-divider-gem"></div></div>
   <p class="hero-desc">
