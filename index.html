@@ -22,8 +22,8 @@
       --gold:         #c8821a;
       --gold-light:   #e8b86d;
       --gold-pale:    rgba(200, 130, 26, 0.10);
-      --text-primary: #ede0c4;
-      --text-secondary:#9a8a72;
+      --text-primary: #f0e8d4;
+      --text-secondary:#b8a88a;
       --text-muted:   #3e3428;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-ui:      'Barlow Condensed', sans-serif;
@@ -38,7 +38,7 @@
       color: var(--text-primary);
       font-family: var(--font-body);
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.8;
       min-height: 100vh;
     }
 
@@ -103,6 +103,79 @@
       transition: background 0.2s !important;
     }
     .btn-discord-nav:hover { background: var(--gold-light) !important; }
+
+    /* ── HAMBURGER ───────────────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      margin-left: 0.5rem;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--text-secondary);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── MOBILE MENU DRAWER ──────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: rgba(6, 4, 3, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-mid);
+      padding: 1.5rem 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 0.25rem;
+      animation: slideDown 0.2s ease;
+    }
+    .mobile-menu.open { display: flex; }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-menu a {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 12px 4px;
+      border-bottom: 1px solid var(--border-dim);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold-light); }
+    .mobile-menu .btn-discord-mobile {
+      margin-top: 1rem;
+      text-align: center;
+      color: var(--bg-base) !important;
+      background: var(--gold);
+      padding: 12px !important;
+      border-radius: 2px;
+      border-bottom: none !important;
+      font-weight: 600 !important;
+    }
+    .mobile-menu .btn-discord-mobile:hover { background: var(--gold-light); color: var(--bg-base) !important; }
 
     /* ── HERO ────────────────────────────────────────────────── */
     .hero {
@@ -200,10 +273,10 @@
 
     .hero-desc {
       font-family: var(--font-body);
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 300;
       color: var(--text-secondary);
-      max-width: 460px;
+      max-width: 480px;
       margin: 0 auto 2.5rem;
       line-height: 1.9;
     }
@@ -325,7 +398,7 @@
 
     .section-title {
       font-family: var(--font-display);
-      font-size: 46px;
+      font-size: 52px;
       font-weight: 600;
       color: var(--text-primary);
       line-height: 1;
@@ -334,7 +407,7 @@
     /* Google Docs content — re-skinned */
     .doc-body {
       font-family: var(--font-body);
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 300;
       color: var(--text-secondary);
       line-height: 1.9;
@@ -342,7 +415,7 @@
     .doc-body * { font-family: inherit; color: inherit; background: none !important; }
     .doc-body h1 {
       font-family: var(--font-display);
-      font-size: 28px;
+      font-size: 34px;
       font-weight: 600;
       color: var(--text-primary);
       margin: 2.5rem 0 1rem;
@@ -352,7 +425,7 @@
     }
     .doc-body h2 {
       font-family: var(--font-display);
-      font-size: 21px;
+      font-size: 26px;
       font-weight: 600;
       color: var(--gold-light);
       margin: 2rem 0 0.6rem;
@@ -484,7 +557,8 @@
     /* ── RESPONSIVE ──────────────────────────────────────────── */
     @media (max-width: 720px) {
       nav { padding: 0 1.25rem; }
-      .nav-links li:not(:last-child) { display: none; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .hero { padding: 80px 1.5rem 60px; }
       .rules-wrapper {
         grid-template-columns: 1fr;
@@ -497,8 +571,8 @@
         border-left: none;
         border: 1px solid var(--border-dim);
         border-radius: 2px;
-        padding: 5px 12px;
-        font-size: 12px;
+        padding: 6px 14px;
+        font-size: 13px;
       }
       .sidebar-nav li a.active {
         border-color: var(--gold);
@@ -518,7 +592,16 @@
     <li><a href="#rules">Rules</a></li>
     <li><a href="#" class="btn-discord-nav" id="discord-nav">Join Discord</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+  <a href="#rules" id="mobile-rules">Rules</a>
+  <a href="#" class="btn-discord-mobile" id="discord-mobile">Join Discord</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -554,6 +637,25 @@
 </footer>
 
 <script>
+  // Hamburger menu
+  (() => {
+    const btn  = document.getElementById('nav-hamburger');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    // Close on link click
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+
   (async () => {
     // Load config
     let CONFIG;
@@ -566,8 +668,9 @@
     }
 
     // Inject Discord URLs
-    document.getElementById('discord-nav').href  = CONFIG.discordUrl;
-    document.getElementById('discord-hero').href = CONFIG.discordUrl;
+    document.getElementById('discord-nav').href    = CONFIG.discordUrl;
+    document.getElementById('discord-hero').href   = CONFIG.discordUrl;
+    document.getElementById('discord-mobile').href = CONFIG.discordUrl;
 
     const sidebarNav  = document.getElementById('sidebar-nav');
     const rulesContent = document.getElementById('rules-content');
